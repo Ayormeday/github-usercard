@@ -5,10 +5,10 @@
 
 axios.get('https://api.github.com/users/ayormeday')
 .then(response => {
-  document.body.innerText = response.data.name;
+ 
 })
 .catch(error => { 
-  document.body.innerText = error.message;
+
 });
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -54,6 +54,43 @@ const followersArray = [];
 
 */
 
+function createUser (user){
+
+  const divContainer = document.createElement('div');
+  const img = document.createElement('img');
+  const divInner = document.createElement('div');
+  const h3 = document.createElement('h3');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const p4 = document.createElement('p');
+  const p5 = document.createElement('p');
+  const p6 = document.createElement('p');
+  const a = document.createElement('a');
+
+  divContainer.classList.add('card');
+  img.src = user.img
+  divInner.classList.add('card-info');
+  h3.classList.add('name');
+  h3.textContent = user.name;
+  p1.classList.add('username');
+  p2.textContent = user.location;
+  a.textContent = user.address;
+  p3.textContent = a;
+  a.href = user.address;
+  p4.textContent = user.followers.length;
+  p5.textContent = user.following.length;
+  p6.textContent = user.bio;
+  
+  divContainer.append(img, divInner,h3,p1,p2,p3,p4,p5,p6,a);
+
+
+
+
+  
+
+
+};
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
